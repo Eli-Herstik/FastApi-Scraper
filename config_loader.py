@@ -41,7 +41,6 @@ class Config:
     http_credentials: Dict[str, str] = None
     form_filling: FormConfig = None
     exclude_patterns: list = None
-    output_file: str = "mappings_output.json"
     login: Optional[LoginConfig] = None
 
     def __post_init__(self):
@@ -104,6 +103,5 @@ def load_config(config_path: str) -> Config:
         http_credentials=http_credentials,
         form_filling=form_config,
         exclude_patterns=data.get('exclude_patterns'),
-        output_file=data.get('output_file', 'mappings_output.json'),
         login=_resolve_login(data),
     )
